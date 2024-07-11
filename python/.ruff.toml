@@ -1,6 +1,22 @@
-select = ["E", "F", "I", "S"]
+target-version = "py312"
 line-length = 120
-target-version = "py311"
+indent-width = 4
 
-[per-file-ignores]
-"tests/test*.py" = ["S101"]
+[lint]
+select = ["A", "B", "C4", "D", "E", "F", "I", "N", "Q", "PERF", "RET", "RUF", "SIM", "YTT"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D213", "E402", "SIM105", "RUF003", "RUF002"]
+unfixable = ["F401", "F841"]
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.per-file-ignores]
+"tests/*.py" = ["SIM117"]
+"__init__.py" = ["F401", "F403"]
+
+[format]
+exclude = ["tests_dsl/*.py"]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
